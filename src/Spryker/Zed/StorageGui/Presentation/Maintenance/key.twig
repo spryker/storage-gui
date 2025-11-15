@@ -1,4 +1,4 @@
-{% extends '@Application/Layout/layout.twig' %}
+{% extends '@Gui/Layout/layout.twig' %}
 
 {% block body_class %}spy-page{% endblock %}
 
@@ -9,11 +9,11 @@
 {% block content %}
     {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Search Key' } %}
         {% block widget_content %}
-            <div class="col-sm-12 storage-key">
-                <div class="clearfix storage-key__title">
-                    <h1 class="pull-left">{{ key }}</h1>
+            <div class="storage-key">
+                <div class="row storage-key__title">
+                    <h1 class="col-sm-12">{{ key }}</h1>
 
-                    <div class="pull-right">
+                    <div class="col-sm-auto">
                         {% if referenceKey %}
                             <a href="/storage-gui/maintenance/key?key={{ referenceKey }}">{{ referenceKey }}</a>
                         {% endif %}
