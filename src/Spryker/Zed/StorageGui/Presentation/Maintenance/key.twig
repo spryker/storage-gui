@@ -1,37 +1,36 @@
 {% extends '@Gui/Layout/layout.twig' %}
 
-{% block body_class %}spy-page
-{% endblock %}
+{% block body_class %}spy-page{% endblock %}
 
 {% block action %}
-	{{ viewActionButton('/storage-gui/maintenance', 'All Keys' | trans) }}
+    {{ viewActionButton('/storage-gui/maintenance', 'All Keys' | trans) }}
 {% endblock %}
 
 {% block content %}
-	{% embed '@Gui/Partials/widget.twig' with { widget_title: 'Search Key' } %}
-		{% block widget_content %}
-			<div class="storage-key">
-				<div class="clearfix storage-key__title">
-					<h1 class="float-start">{{ key }}</h1>
+    {% embed '@Gui/Partials/widget.twig' with { widget_title: 'Search Key' } %}
+        {% block widget_content %}
+            <div class="storage-key">
+                <div class="clearfix storage-key__title">
+                    <h1 class="float-start">{{ key }}</h1>
 
-					<div class="float-end">
-						{% if referenceKey %}
-							<a href="/storage-gui/maintenance/key?key={{ referenceKey }}">{{ referenceKey }}</a>
-						{% endif %}
-						<button data-copy-target="key-json-raw" data-success-feedback-text="{{ 'Copied!' | trans }}" data-failed-feedback-text="{{ 'Failed to copy' | trans }}" class="btn btn-sm btn-default copy-button">
-							<span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
-							{{ 'Copy' | trans }}
-						</button>
+                    <div class="float-end">
+                        {% if referenceKey %}
+                            <a href="/storage-gui/maintenance/key?key={{ referenceKey }}">{{ referenceKey }}</a>
+                        {% endif %}
+                        <button data-copy-target="key-json-raw" data-success-feedback-text="{{ 'Copied!' | trans }}" data-failed-feedback-text="{{ 'Failed to copy' | trans }}" class="btn btn-sm btn-default copy-button">
+                            <span class="fa fa-clipboard" aria-hidden="true"></span>
+                            {{ 'Copy' | trans }}
+                        </button>
 
-						<button data-download-target="key-json-raw" data-success-feedback-text="{{ 'Downloaded!' | trans }}" data-failed-feedback-text="{{ 'Failed to download' | trans }}" data-filename="{{ key }}.json" class="btn btn-sm btn-default download-button">
-							<span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
-							{{ 'Download' | trans }}
-						</button>
-					</div>
-				</div>
-			</div>
+                        <button data-download-target="key-json-raw" data-success-feedback-text="{{ 'Downloaded!' | trans }}" data-failed-feedback-text="{{ 'Failed to download' | trans }}" data-filename="{{ key }}.json" class="btn btn-sm btn-default download-button">
+                            <span class="fa fa-download" aria-hidden="true"></span>
+                            {{ 'Download' | trans }}
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-			<pre><code class="json" id="key-json-raw">{{ value | json_encode(constant('JSON_PRETTY_PRINT')) }}</code></pre>
-		{% endblock %}
-	{% endembed %}
+            <pre><code class="json" id="key-json-raw">{{ value | json_encode(constant('JSON_PRETTY_PRINT')) }}</code></pre>
+        {% endblock %}
+    {% endembed %}
 {% endblock %}
