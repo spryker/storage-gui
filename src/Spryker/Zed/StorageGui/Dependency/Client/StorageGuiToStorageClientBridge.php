@@ -39,7 +39,7 @@ class StorageGuiToStorageClientBridge implements StorageGuiToStorageClientInterf
     /**
      * @param string $pattern
      *
-     * @return list<string>
+     * @return array<string>
      */
     public function getKeys(string $pattern): array
     {

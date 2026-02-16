@@ -169,7 +169,7 @@ class StorageTable extends AbstractTable
     }
 
     /**
-     * @return list<string>
+     * @return array<string>
      */
     protected function getKeys(): array
     {
