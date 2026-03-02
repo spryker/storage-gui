@@ -52,9 +52,6 @@ class MaintenanceController extends AbstractController
         ]);
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function listAjaxAction(): JsonResponse
     {
         return $this->jsonResponse(

@@ -19,9 +19,6 @@ use Spryker\Zed\StorageGui\StorageGuiDependencyProvider;
  */
 class StorageGuiCommunicationFactory extends AbstractCommunicationFactory
 {
-    /**
-     * @return \Spryker\Zed\StorageGui\Communication\Table\StorageTable
-     */
     public function createStorageTable(): StorageTable
     {
         return new StorageTable(
@@ -31,25 +28,16 @@ class StorageGuiCommunicationFactory extends AbstractCommunicationFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\StorageGui\Dependency\Facade\StorageGuiToStorageFacadeInterface
-     */
     public function getStorageFacade(): StorageGuiToStorageFacadeInterface
     {
         return $this->getProvidedDependency(StorageGuiDependencyProvider::FACADE_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Zed\StorageGui\Dependency\Client\StorageGuiToStorageClientInterface
-     */
     public function getStorageClient(): StorageGuiToStorageClientInterface
     {
         return $this->getProvidedDependency(StorageGuiDependencyProvider::CLIENT_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Zed\StorageGui\Dependency\Service\StorageGuiToUtilSanitizeServiceInterface
-     */
     public function getUtilSanitizeService(): StorageGuiToUtilSanitizeServiceInterface
     {
         return $this->getProvidedDependency(StorageGuiDependencyProvider::SERVICE_UTIL_SANITIZE);

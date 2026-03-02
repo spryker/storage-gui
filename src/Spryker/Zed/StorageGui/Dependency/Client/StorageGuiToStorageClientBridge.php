@@ -24,13 +24,6 @@ class StorageGuiToStorageClientBridge implements StorageGuiToStorageClientInterf
         $this->storageClient = $storageClient;
     }
 
-    /**
-     * @param string $pattern
-     * @param int $limit
-     * @param int|null $cursor
-     *
-     * @return \Generated\Shared\Transfer\StorageScanResultTransfer
-     */
     public function scanKeys(string $pattern, int $limit, ?int $cursor = 0): StorageScanResultTransfer
     {
         return $this->storageClient->scanKeys($pattern, $limit, $cursor);
@@ -66,9 +59,6 @@ class StorageGuiToStorageClientBridge implements StorageGuiToStorageClientInterf
         return $this->storageClient->get($key);
     }
 
-    /**
-     * @return int
-     */
     public function getCountItems(): int
     {
         return $this->storageClient->getCountItems();

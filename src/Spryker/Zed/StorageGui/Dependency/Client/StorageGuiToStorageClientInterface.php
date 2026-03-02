@@ -11,13 +11,6 @@ use Generated\Shared\Transfer\StorageScanResultTransfer;
 
 interface StorageGuiToStorageClientInterface
 {
-    /**
-     * @param string $pattern
-     * @param int $limit
-     * @param int|null $cursor
-     *
-     * @return \Generated\Shared\Transfer\StorageScanResultTransfer
-     */
     public function scanKeys(string $pattern, int $limit, ?int $cursor = 0): StorageScanResultTransfer;
 
     /**
@@ -41,8 +34,5 @@ interface StorageGuiToStorageClientInterface
      */
     public function get(string $key);
 
-    /**
-     * @return int
-     */
     public function getCountItems(): int;
 }

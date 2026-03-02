@@ -16,8 +16,5 @@ interface StorageGuiToStorageFacadeInterface
      */
     public function get(string $key);
 
-    /**
-     * @return int
-     */
     public function getTotalCount(): int;
 }

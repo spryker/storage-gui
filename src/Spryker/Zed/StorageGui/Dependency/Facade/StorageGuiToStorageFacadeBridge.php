@@ -32,9 +32,6 @@ class StorageGuiToStorageFacadeBridge implements StorageGuiToStorageFacadeInterf
         return $this->storageFacade->get($key);
     }
 
-    /**
-     * @return int
-     */
     public function getTotalCount(): int
     {
         return $this->storageFacade->getTotalCount();

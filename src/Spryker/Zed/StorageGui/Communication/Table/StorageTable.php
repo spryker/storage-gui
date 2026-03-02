@@ -76,11 +76,6 @@ class StorageTable extends AbstractTable
      */
     protected StorageGuiToUtilSanitizeServiceInterface $utilSanitizeService;
 
-    /**
-     * @param \Spryker\Zed\StorageGui\Dependency\Client\StorageGuiToStorageClientInterface $storageClient
-     * @param \Spryker\Zed\StorageGui\Dependency\Service\StorageGuiToUtilSanitizeServiceInterface $utilSanitizeService
-     * @param int|null $defaultPageLength
-     */
     public function __construct(
         StorageGuiToStorageClientInterface $storageClient,
         StorageGuiToUtilSanitizeServiceInterface $utilSanitizeService,
@@ -91,11 +86,6 @@ class StorageTable extends AbstractTable
         $this->defaultPageLength = $defaultPageLength ?? static::DEFAULT_PAGE_LENGTH;
     }
 
-    /**
-     * @param \Spryker\Zed\Gui\Communication\Table\TableConfiguration $config
-     *
-     * @return \Spryker\Zed\Gui\Communication\Table\TableConfiguration
-     */
     protected function configure(TableConfiguration $config): TableConfiguration
     {
         $config->setHeader([
@@ -136,9 +126,6 @@ class StorageTable extends AbstractTable
         return $data;
     }
 
-    /**
-     * @return string
-     */
     public function getSearchTerm(): string
     {
         if (parent::getSearchTerm() == null || parent::getSearchTerm()[static::TABLE_COL_VALUE] === '') {
@@ -148,21 +135,11 @@ class StorageTable extends AbstractTable
         return preg_replace(sprintf('/^%s/', StorageGuiConfig::KV_PREFIX), '', parent::getSearchTerm()[static::TABLE_COL_VALUE]);
     }
 
-    /**
-     * @param string $key
-     *
-     * @return bool
-     */
     protected function isRedisPattern(string $key): bool
     {
         return preg_match('/[*?\[\]]/', $key) === 1;
     }
 
-    /**
-     * @param string $key
-     *
-     * @return string
-     */
     protected function createKeyUrl(string $key): string
     {
         return Url::generate(static::ROUTE_MAINTAIN_KEY, [static::URL_PARAM_KEY => $key]);
